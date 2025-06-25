@@ -18,7 +18,6 @@ import { ExclamationTriangleIcon } from "@radix-ui/react-icons";
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [rememberMe, setRememberMe] = useState(false);
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
@@ -97,18 +96,6 @@ export default function Login() {
                     onChange={(e) => setPassword(e.target.value)}
                     className="border-pink-200 focus:border-pink-400"
                   />
-                </div>
-                <div className="flex items-center space-x-2">
-                  <Checkbox
-                    id="remember"
-                    checked={rememberMe}
-                    onCheckedChange={(checked) =>
-                      setRememberMe(checked === true)
-                    }
-                  />
-                  <Label htmlFor="remember" className="text-sm">
-                    Remember me
-                  </Label>
                 </div>
               </div>
               <Button

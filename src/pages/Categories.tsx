@@ -1,7 +1,6 @@
 import React from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Plus, Edit, Trash2, Star, Palette } from "lucide-react";
 
@@ -130,24 +129,24 @@ const Categories = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background">
-      <div className="w-full">
-        <header className="border-b p-4 bg-background">
-          <div className="flex justify-between items-center">
-            <div className="flex items-center gap-3">
-              <div className="bg-pink-600 rounded-full p-2">
+    <div style={{ minHeight: '100vh', background: '#c0c0c0', fontFamily: 'Segoe UI, Tahoma, Geneva, Verdana, sans-serif' }}>
+      <div style={{ width: '100%' }}>
+        <header style={{ borderBottom: '1px solid #888', padding: 12, background: '#e0e0e0' }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+              <div style={{ background: '#888', borderRadius: 0, padding: 8 }}>
                 <Palette className="h-6 w-6 text-white" />
               </div>
-              <h1 className="text-2xl font-bold text-pink-600">ManiPay</h1>
-              <span className="text-2xl font-bold text-gray-400 mx-2">|</span>
-              <h2 className="text-2xl font-bold">Service Categories</h2>
+              <h1 style={{ fontSize: 22, fontWeight: 'bold', color: '#333' }}>ManiPay</h1>
+              <span style={{ fontSize: 22, fontWeight: 'bold', color: '#888', margin: '0 8px' }}>|</span>
+              <h2 style={{ fontSize: 22, fontWeight: 'bold' }}>Service Categories</h2>
             </div>
-            <div className="flex gap-2">
-              <Button variant="outline">
+            <div style={{ display: 'flex', gap: 8 }}>
+              <Button style={{ borderRadius: 0, background: '#e0e0e0', border: '1px solid #888', color: '#333' }}>
                 <Plus className="h-4 w-4 mr-2" />
                 Add Service
               </Button>
-              <Button>
+              <Button style={{ borderRadius: 0, background: '#e0e0e0', border: '1px solid #888', color: '#333' }}>
                 <Plus className="h-4 w-4 mr-2" />
                 Add Category
               </Button>
@@ -162,7 +161,9 @@ const Categories = () => {
               <Card key={key}>
                 <CardContent className="p-4">
                   <div className="flex items-center justify-between mb-2">
-                    <Badge className={category.color}>{category.name}</Badge>
+                    <span style={{ background: category.color, padding: '2px 8px', borderRadius: 4 }}>
+                      {category.name}
+                    </span>
                     <span className="text-sm text-muted-foreground">
                       {category.services.length} services
                     </span>
@@ -217,13 +218,9 @@ const Categories = () => {
                                         {service.name}
                                       </h4>
                                       {service.popular && (
-                                        <Badge
-                                          variant="secondary"
-                                          className="text-xs"
-                                        >
-                                          <Star className="h-3 w-3 mr-1" />
+                                        <span style={{ background: '#e0e0e0', padding: '2px 8px', borderRadius: 4 }}>
                                           Popular
-                                        </Badge>
+                                        </span>
                                       )}
                                     </div>
                                     <div className="flex items-center gap-4 text-sm text-muted-foreground mt-1">

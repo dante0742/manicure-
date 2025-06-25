@@ -9,20 +9,18 @@ import RevenueStats from "./dashboard/RevenueStats";
 
 const Home = () => {
   return (
-    <div className="min-h-screen bg-background">
-      {/* Main Content */}
-      <div className="w-full">
-        {/* Header */}
-        <header className="border-b p-4 bg-background">
-          <div className="flex justify-between items-center">
-            <div className="flex items-center gap-3">
-              <div className="bg-pink-600 rounded-full p-2">
+    <div style={{ minHeight: '100vh', background: '#c0c0c0', fontFamily: 'Segoe UI, Tahoma, Geneva, Verdana, sans-serif' }}>
+      <div style={{ width: '100%' }}>
+        <header style={{ borderBottom: '1px solid #888', padding: 12, background: '#e0e0e0' }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+              <div style={{ background: '#888', borderRadius: 0, padding: 8 }}>
                 <Palette className="h-6 w-6 text-white" />
               </div>
-              <h1 className="text-2xl font-bold text-pink-600">ManiPay</h1>
+              <h1 style={{ fontSize: 22, fontWeight: 'bold', color: '#333' }}>ManiPay</h1>
             </div>
-            <div className="flex items-center gap-4">
-              <Button variant="outline" size="sm">
+            <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
+              <Button style={{ borderRadius: 0, background: '#e0e0e0', border: '1px solid #888', color: '#333' }}>
                 <CalendarIcon className="h-4 w-4 mr-2" />
                 Today
               </Button>
@@ -34,9 +32,7 @@ const Home = () => {
           </div>
         </header>
 
-        {/* Dashboard Content */}
         <div className="p-6 space-y-6">
-          {/* Summary Cards */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <Card>
               <CardHeader className="pb-2">
@@ -79,20 +75,16 @@ const Home = () => {
             </Card>
           </div>
 
-          {/* Main Dashboard Sections */}
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-            {/* Appointments Section - Takes 2/3 of the space */}
             <div className="lg:col-span-2">
               <AppointmentsList />
             </div>
 
-            {/* Revenue Stats Section - Takes 1/3 of the space */}
             <div>
               <RevenueStats />
             </div>
           </div>
 
-          {/* Popular Services Section */}
           <div>
             <Card>
               <CardHeader>

@@ -30,6 +30,9 @@ const Sidebar = ({
     { name: "Categories", path: "/categories", icon: <Grid size={20} /> },
     { name: "Staff", path: "/staff", icon: <UserCog size={20} /> },
     { name: "Account", path: "/account", icon: <Settings size={20} /> },
+    { name: "Payment Entry", path: "/payment-entry", icon: <Grid size={20} /> },
+    { name: "Reporting Tools", path: "/reporting-tools", icon: <Grid size={20} /> },
+    { name: "Balance Tracker", path: "/balance-tracker", icon: <Grid size={20} /> },
   ];
 
   return (

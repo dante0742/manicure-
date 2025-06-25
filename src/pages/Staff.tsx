@@ -2,7 +2,6 @@ import React from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Badge } from "@/components/ui/badge";
 import {
   Table,
   TableBody,
@@ -91,21 +90,21 @@ const Staff = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background">
-      <div className="w-full">
-        <header className="border-b p-4 bg-background">
-          <div className="flex justify-between items-center">
-            <div className="flex items-center gap-3">
-              <div className="bg-pink-600 rounded-full p-2">
+    <div style={{ minHeight: '100vh', background: '#c0c0c0', fontFamily: 'Segoe UI, Tahoma, Geneva, Verdana, sans-serif' }}>
+      <div style={{ width: '100%' }}>
+        <header style={{ borderBottom: '1px solid #888', padding: 12, background: '#e0e0e0' }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+              <div style={{ background: '#888', borderRadius: 0, padding: 8 }}>
                 <Palette className="h-6 w-6 text-white" />
               </div>
-              <h1 className="text-2xl font-bold text-pink-600">ManiPay</h1>
-              <span className="text-2xl font-bold text-gray-400 mx-2">|</span>
-              <h2 className="text-2xl font-bold">Staff Management</h2>
+              <h1 style={{ fontSize: 22, fontWeight: 'bold', color: '#333' }}>ManiPay</h1>
+              <span style={{ fontSize: 22, fontWeight: 'bold', color: '#888', margin: '0 8px' }}>|</span>
+              <h2 style={{ fontSize: 22, fontWeight: 'bold' }}>Staff Management</h2>
             </div>
-            <Button>
+            <Button style={{ borderRadius: 0, background: '#e0e0e0', border: '1px solid #888', color: '#333' }}>
               <Plus className="h-4 w-4 mr-2" />
-              Add Staff Member
+              Add Staff
             </Button>
           </div>
         </header>
@@ -157,9 +156,9 @@ const Staff = () => {
                         </p>
                       </div>
                     </div>
-                    <Badge className={getStatusColor(staff.status)}>
+                    <span style={getStatusColor(staff.status)}>
                       {staff.status}
-                    </Badge>
+                    </span>
                   </div>
                 </CardHeader>
                 <CardContent className="space-y-4">
@@ -192,9 +191,9 @@ const Staff = () => {
                     <p className="text-sm font-medium mb-2">Specialties:</p>
                     <div className="flex gap-2 flex-wrap">
                       {staff.specialties.map((specialty, index) => (
-                        <Badge key={index} variant="outline">
+                        <span key={index} style={{ ...getStatusColor(specialty) }} className="px-2 py-1 rounded-full text-sm">
                           {specialty}
-                        </Badge>
+                        </span>
                       ))}
                     </div>
                   </div>
@@ -247,25 +246,39 @@ const Staff = () => {
                         </div>
                       </TableCell>
                       <TableCell>
-                        <Badge variant="outline">9AM-6PM</Badge>
+                        <span style={{ ...getStatusColor(staff.schedule.split('-')[0]) }}>
+                          {staff.schedule.split('-')[0]}
+                        </span>
                       </TableCell>
                       <TableCell>
-                        <Badge variant="outline">9AM-6PM</Badge>
+                        <span style={{ ...getStatusColor(staff.schedule.split('-')[1]) }}>
+                          {staff.schedule.split('-')[1]}
+                        </span>
                       </TableCell>
                       <TableCell>
-                        <Badge variant="outline">9AM-6PM</Badge>
+                        <span style={{ ...getStatusColor(staff.schedule.split('-')[2]) }}>
+                          {staff.schedule.split('-')[2]}
+                        </span>
                       </TableCell>
                       <TableCell>
-                        <Badge variant="outline">9AM-6PM</Badge>
+                        <span style={{ ...getStatusColor(staff.schedule.split('-')[3]) }}>
+                          {staff.schedule.split('-')[3]}
+                        </span>
                       </TableCell>
                       <TableCell>
-                        <Badge variant="outline">9AM-6PM</Badge>
+                        <span style={{ ...getStatusColor(staff.schedule.split('-')[4]) }}>
+                          {staff.schedule.split('-')[4]}
+                        </span>
                       </TableCell>
                       <TableCell>
-                        <Badge variant="secondary">Off</Badge>
+                        <span style={{ ...getStatusColor(staff.schedule.split('-')[5]) }}>
+                          {staff.schedule.split('-')[5]}
+                        </span>
                       </TableCell>
                       <TableCell>
-                        <Badge variant="secondary">Off</Badge>
+                        <span style={{ ...getStatusColor(staff.schedule.split('-')[6]) }}>
+                          {staff.schedule.split('-')[6]}
+                        </span>
                       </TableCell>
                     </TableRow>
                   ))}

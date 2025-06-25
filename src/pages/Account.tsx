@@ -3,7 +3,6 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Badge } from "@/components/ui/badge";
 import {
   Settings,
   User,
@@ -15,19 +14,19 @@ import {
 
 const Account = () => {
   return (
-    <div className="min-h-screen bg-background">
-      <div className="w-full">
-        <header className="border-b p-4 bg-background">
-          <div className="flex justify-between items-center">
-            <div className="flex items-center gap-3">
-              <div className="bg-pink-600 rounded-full p-2">
+    <div style={{ minHeight: '100vh', background: '#c0c0c0', fontFamily: 'Segoe UI, Tahoma, Geneva, Verdana, sans-serif' }}>
+      <div style={{ width: '100%' }}>
+        <header style={{ borderBottom: '1px solid #888', padding: 12, background: '#e0e0e0' }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+              <div style={{ background: '#888', borderRadius: 0, padding: 8 }}>
                 <Palette className="h-6 w-6 text-white" />
               </div>
-              <h1 className="text-2xl font-bold text-pink-600">ManiPay</h1>
-              <span className="text-2xl font-bold text-gray-400 mx-2">|</span>
-              <h2 className="text-2xl font-bold">Account Settings</h2>
+              <h1 style={{ fontSize: 22, fontWeight: 'bold', color: '#333' }}>ManiPay</h1>
+              <span style={{ fontSize: 22, fontWeight: 'bold', color: '#888', margin: '0 8px' }}>|</span>
+              <h2 style={{ fontSize: 22, fontWeight: 'bold' }}>Account Settings</h2>
             </div>
-            <Button variant="outline" size="sm">
+            <Button style={{ borderRadius: 0, background: '#e0e0e0', border: '1px solid #888', color: '#333' }}>
               <Settings className="h-4 w-4 mr-2" />
               Preferences
             </Button>
@@ -75,7 +74,7 @@ const Account = () => {
                 <div className="space-y-2">
                   <label className="text-sm font-medium">Role</label>
                   <div className="flex items-center gap-2">
-                    <Badge variant="secondary">Admin</Badge>
+                    <span style={{ background: '#888', borderRadius: 0, padding: 8 }}>Admin</span>
                   </div>
                 </div>
               </div>
@@ -159,7 +158,7 @@ const Account = () => {
                     Professional Plan - KSh 2,500/month
                   </p>
                 </div>
-                <Badge>Active</Badge>
+                <span style={{ background: '#888', borderRadius: 0, padding: 8 }}>Active</span>
               </div>
               <div className="flex gap-2">
                 <Button variant="outline">View Invoices</Button>
