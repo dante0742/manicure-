@@ -135,142 +135,35 @@ const Categories = () => {
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
               <div style={{ background: '#888', borderRadius: 0, padding: 8 }}>
-                <Palette className="h-6 w-6 text-white" />
+                <span style={{ color: '#fff', fontWeight: 'bold' }}>MP</span>
               </div>
               <h1 style={{ fontSize: 22, fontWeight: 'bold', color: '#333' }}>ManiPay</h1>
               <span style={{ fontSize: 22, fontWeight: 'bold', color: '#888', margin: '0 8px' }}>|</span>
               <h2 style={{ fontSize: 22, fontWeight: 'bold' }}>Service Categories</h2>
             </div>
-            <div style={{ display: 'flex', gap: 8 }}>
-              <Button style={{ borderRadius: 0, background: '#e0e0e0', border: '1px solid #888', color: '#333' }}>
-                <Plus className="h-4 w-4 mr-2" />
-                Add Service
-              </Button>
-              <Button style={{ borderRadius: 0, background: '#e0e0e0', border: '1px solid #888', color: '#333' }}>
-                <Plus className="h-4 w-4 mr-2" />
-                Add Category
-              </Button>
-            </div>
+            <button style={{ border: '1px solid #888', background: '#e0e0e0', color: '#333', padding: '6px 16px', fontWeight: 'bold', fontFamily: 'inherit', borderRadius: 0, cursor: 'pointer' }}>
+              + Add Category
+            </button>
           </div>
         </header>
-
-        <div className="p-6 space-y-6">
-          {/* Category Overview */}
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-            {Object.entries(serviceCategories).map(([key, category]) => (
-              <Card key={key}>
-                <CardContent className="p-4">
-                  <div className="flex items-center justify-between mb-2">
-                    <span style={{ background: category.color, padding: '2px 8px', borderRadius: 4 }}>
-                      {category.name}
-                    </span>
-                    <span className="text-sm text-muted-foreground">
-                      {category.services.length} services
-                    </span>
-                  </div>
-                  <div className="text-2xl font-bold">
-                    {category.services.filter((s) => s.popular).length}
-                  </div>
-                  <p className="text-sm text-muted-foreground">
-                    Popular Services
-                  </p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-
-          {/* Service Categories Tabs */}
-          <Card>
-            <CardHeader>
-              <CardTitle>Manage Services</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <Tabs defaultValue="acrylics">
-                <TabsList className="grid grid-cols-4 mb-6">
-                  <TabsTrigger value="acrylics">Acrylics</TabsTrigger>
-                  <TabsTrigger value="gumgel">Gum Gel</TabsTrigger>
-                  <TabsTrigger value="manicure">Manicure/Pedicure</TabsTrigger>
-                  <TabsTrigger value="stickons">Stick-ons</TabsTrigger>
-                </TabsList>
-
-                {Object.entries(serviceCategories).map(([key, category]) => (
-                  <TabsContent key={key} value={key}>
-                    <div className="space-y-4">
-                      <div className="flex items-center justify-between">
-                        <h3 className="text-lg font-semibold">
-                          {category.name} Services
-                        </h3>
-                        <Button size="sm">
-                          <Plus className="h-4 w-4 mr-2" />
-                          Add {category.name} Service
-                        </Button>
-                      </div>
-
-                      <div className="grid gap-4">
-                        {category.services.map((service, index) => (
-                          <Card key={index}>
-                            <CardContent className="p-4">
-                              <div className="flex items-center justify-between">
-                                <div className="flex items-center gap-3">
-                                  <div>
-                                    <div className="flex items-center gap-2">
-                                      <h4 className="font-medium">
-                                        {service.name}
-                                      </h4>
-                                      {service.popular && (
-                                        <span style={{ background: '#e0e0e0', padding: '2px 8px', borderRadius: 4 }}>
-                                          Popular
-                                        </span>
-                                      )}
-                                    </div>
-                                    <div className="flex items-center gap-4 text-sm text-muted-foreground mt-1">
-                                      <span>Price: {service.price}</span>
-                                      <span>Duration: {service.duration}</span>
-                                    </div>
-                                  </div>
-                                </div>
-                                <div className="flex gap-2">
-                                  <Button variant="outline" size="sm">
-                                    <Edit className="h-4 w-4" />
-                                  </Button>
-                                  <Button variant="outline" size="sm">
-                                    <Trash2 className="h-4 w-4" />
-                                  </Button>
-                                </div>
-                              </div>
-                            </CardContent>
-                          </Card>
-                        ))}
-                      </div>
-                    </div>
-                  </TabsContent>
-                ))}
-              </Tabs>
-            </CardContent>
-          </Card>
-
-          {/* Quick Actions */}
-          <Card>
-            <CardHeader>
-              <CardTitle>Quick Actions</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                <Button variant="outline" className="h-20 flex-col gap-2">
-                  <Plus className="h-6 w-6" />
-                  <span>Add New Service</span>
-                </Button>
-                <Button variant="outline" className="h-20 flex-col gap-2">
-                  <Edit className="h-6 w-6" />
-                  <span>Bulk Edit Prices</span>
-                </Button>
-                <Button variant="outline" className="h-20 flex-col gap-2">
-                  <Star className="h-6 w-6" />
-                  <span>Manage Popular Services</span>
-                </Button>
-              </div>
-            </CardContent>
-          </Card>
+        <div style={{ padding: 24 }}>
+          {/* Example of a classic VB6-style table for categories */}
+          <table style={{ width: '100%', borderCollapse: 'collapse', background: '#fff', border: '1px solid #888' }}>
+            <thead>
+              <tr style={{ background: '#e0e0e0' }}>
+                <th style={{ border: '1px solid #888', padding: 8 }}>Category</th>
+                <th style={{ border: '1px solid #888', padding: 8 }}>Services</th>
+              </tr>
+            </thead>
+            <tbody>
+              {Object.values(serviceCategories).map((cat: any, idx: number) => (
+                <tr key={idx}>
+                  <td style={{ border: '1px solid #888', padding: 8 }}>{cat.name}</td>
+                  <td style={{ border: '1px solid #888', padding: 8 }}>{cat.services.map((s: any) => s.name).join(', ')}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
       </div>
     </div>

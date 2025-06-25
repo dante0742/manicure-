@@ -96,196 +96,47 @@ const Staff = () => {
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
               <div style={{ background: '#888', borderRadius: 0, padding: 8 }}>
-                <Palette className="h-6 w-6 text-white" />
+                <span style={{ color: '#fff', fontWeight: 'bold' }}>MP</span>
               </div>
               <h1 style={{ fontSize: 22, fontWeight: 'bold', color: '#333' }}>ManiPay</h1>
               <span style={{ fontSize: 22, fontWeight: 'bold', color: '#888', margin: '0 8px' }}>|</span>
               <h2 style={{ fontSize: 22, fontWeight: 'bold' }}>Staff Management</h2>
             </div>
-            <Button style={{ borderRadius: 0, background: '#e0e0e0', border: '1px solid #888', color: '#333' }}>
-              <Plus className="h-4 w-4 mr-2" />
-              Add Staff
-            </Button>
+            <button style={{ border: '1px solid #888', background: '#e0e0e0', color: '#333', padding: '6px 16px', fontWeight: 'bold', fontFamily: 'inherit', borderRadius: 0, cursor: 'pointer' }}>
+              + Add Staff
+            </button>
           </div>
         </header>
-
-        <div className="p-6 space-y-6">
-          {/* Staff Overview */}
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-            <Card>
-              <CardContent className="p-4">
-                <div className="text-2xl font-bold">4</div>
-                <p className="text-sm text-muted-foreground">Total Staff</p>
-              </CardContent>
-            </Card>
-            <Card>
-              <CardContent className="p-4">
-                <div className="text-2xl font-bold">2</div>
-                <p className="text-sm text-muted-foreground">Available Now</p>
-              </CardContent>
-            </Card>
-            <Card>
-              <CardContent className="p-4">
-                <div className="text-2xl font-bold">4.7</div>
-                <p className="text-sm text-muted-foreground">Avg. Rating</p>
-              </CardContent>
-            </Card>
-            <Card>
-              <CardContent className="p-4">
-                <div className="text-2xl font-bold">844</div>
-                <p className="text-sm text-muted-foreground">Total Services</p>
-              </CardContent>
-            </Card>
-          </div>
-
-          {/* Staff Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {staffMembers.map((staff) => (
-              <Card key={staff.id}>
-                <CardHeader>
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-3">
-                      <Avatar className="h-12 w-12">
-                        <AvatarImage src={staff.avatar} />
-                        <AvatarFallback>{staff.name.charAt(0)}</AvatarFallback>
-                      </Avatar>
-                      <div>
-                        <h3 className="font-semibold">{staff.name}</h3>
-                        <p className="text-sm text-muted-foreground">
-                          {staff.role}
-                        </p>
-                      </div>
-                    </div>
-                    <span style={getStatusColor(staff.status)}>
-                      {staff.status}
-                    </span>
-                  </div>
-                </CardHeader>
-                <CardContent className="space-y-4">
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-1">
-                      <Star className="h-4 w-4 text-yellow-500 fill-current" />
-                      <span className="font-medium">{staff.rating}</span>
-                    </div>
-                    <span className="text-sm text-muted-foreground">
-                      {staff.completedServices} services completed
-                    </span>
-                  </div>
-
-                  <div className="space-y-2">
-                    <div className="flex items-center gap-2 text-sm">
-                      <Phone className="h-4 w-4 text-muted-foreground" />
-                      {staff.phone}
-                    </div>
-                    <div className="flex items-center gap-2 text-sm">
-                      <Mail className="h-4 w-4 text-muted-foreground" />
-                      {staff.email}
-                    </div>
-                    <div className="flex items-center gap-2 text-sm">
-                      <Clock className="h-4 w-4 text-muted-foreground" />
-                      {staff.schedule}
-                    </div>
-                  </div>
-
-                  <div>
-                    <p className="text-sm font-medium mb-2">Specialties:</p>
-                    <div className="flex gap-2 flex-wrap">
-                      {staff.specialties.map((specialty, index) => (
-                        <span key={index} style={{ ...getStatusColor(specialty) }} className="px-2 py-1 rounded-full text-sm">
-                          {specialty}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-
-                  <div className="flex gap-2 pt-2">
-                    <Button variant="outline" size="sm" className="flex-1">
-                      <Calendar className="h-4 w-4 mr-2" />
-                      View Schedule
-                    </Button>
-                    <Button variant="outline" size="sm" className="flex-1">
-                      Edit Profile
-                    </Button>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-
-          {/* Staff Schedule Table */}
-          <Card>
-            <CardHeader>
-              <CardTitle>Weekly Schedule Overview</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <Table>
-                <TableHeader>
-                  <TableRow>
-                    <TableHead>Staff Member</TableHead>
-                    <TableHead>Monday</TableHead>
-                    <TableHead>Tuesday</TableHead>
-                    <TableHead>Wednesday</TableHead>
-                    <TableHead>Thursday</TableHead>
-                    <TableHead>Friday</TableHead>
-                    <TableHead>Saturday</TableHead>
-                    <TableHead>Sunday</TableHead>
-                  </TableRow>
-                </TableHeader>
-                <TableBody>
-                  {staffMembers.map((staff) => (
-                    <TableRow key={staff.id}>
-                      <TableCell>
-                        <div className="flex items-center gap-2">
-                          <Avatar className="h-6 w-6">
-                            <AvatarImage src={staff.avatar} />
-                            <AvatarFallback>
-                              {staff.name.charAt(0)}
-                            </AvatarFallback>
-                          </Avatar>
-                          <span className="font-medium">{staff.name}</span>
-                        </div>
-                      </TableCell>
-                      <TableCell>
-                        <span style={{ ...getStatusColor(staff.schedule.split('-')[0]) }}>
-                          {staff.schedule.split('-')[0]}
-                        </span>
-                      </TableCell>
-                      <TableCell>
-                        <span style={{ ...getStatusColor(staff.schedule.split('-')[1]) }}>
-                          {staff.schedule.split('-')[1]}
-                        </span>
-                      </TableCell>
-                      <TableCell>
-                        <span style={{ ...getStatusColor(staff.schedule.split('-')[2]) }}>
-                          {staff.schedule.split('-')[2]}
-                        </span>
-                      </TableCell>
-                      <TableCell>
-                        <span style={{ ...getStatusColor(staff.schedule.split('-')[3]) }}>
-                          {staff.schedule.split('-')[3]}
-                        </span>
-                      </TableCell>
-                      <TableCell>
-                        <span style={{ ...getStatusColor(staff.schedule.split('-')[4]) }}>
-                          {staff.schedule.split('-')[4]}
-                        </span>
-                      </TableCell>
-                      <TableCell>
-                        <span style={{ ...getStatusColor(staff.schedule.split('-')[5]) }}>
-                          {staff.schedule.split('-')[5]}
-                        </span>
-                      </TableCell>
-                      <TableCell>
-                        <span style={{ ...getStatusColor(staff.schedule.split('-')[6]) }}>
-                          {staff.schedule.split('-')[6]}
-                        </span>
-                      </TableCell>
-                    </TableRow>
-                  ))}
-                </TableBody>
-              </Table>
-            </CardContent>
-          </Card>
+        <div style={{ padding: 24 }}>
+          <table style={{ width: '100%', borderCollapse: 'collapse', background: '#fff', border: '1px solid #888' }}>
+            <thead>
+              <tr style={{ background: '#e0e0e0' }}>
+                <th style={{ border: '1px solid #888', padding: 8 }}>Name</th>
+                <th style={{ border: '1px solid #888', padding: 8 }}>Role</th>
+                <th style={{ border: '1px solid #888', padding: 8 }}>Email</th>
+                <th style={{ border: '1px solid #888', padding: 8 }}>Phone</th>
+                <th style={{ border: '1px solid #888', padding: 8 }}>Status</th>
+                <th style={{ border: '1px solid #888', padding: 8 }}>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              {staffMembers.map((staff) => (
+                <tr key={staff.id}>
+                  <td style={{ border: '1px solid #888', padding: 8 }}>{staff.name}</td>
+                  <td style={{ border: '1px solid #888', padding: 8 }}>{staff.role}</td>
+                  <td style={{ border: '1px solid #888', padding: 8 }}>{staff.email}</td>
+                  <td style={{ border: '1px solid #888', padding: 8 }}>{staff.phone}</td>
+                  <td style={{ border: '1px solid #888', padding: 8 }}>
+                    <span style={{ background: '#e0e0e0', padding: '2px 8px', border: '1px solid #888', borderRadius: 0 }}>{staff.status}</span>
+                  </td>
+                  <td style={{ border: '1px solid #888', padding: 8 }}>
+                    <button style={{ border: '1px solid #888', background: '#e0e0e0', color: '#333', padding: '4px 10px', fontWeight: 'bold', fontFamily: 'inherit', borderRadius: 0, marginRight: 4, cursor: 'pointer' }}>View</button>
+                    <button style={{ border: '1px solid #888', background: '#e0e0e0', color: '#333', padding: '4px 10px', fontWeight: 'bold', fontFamily: 'inherit', borderRadius: 0, cursor: 'pointer' }}>Edit</button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
       </div>
     </div>

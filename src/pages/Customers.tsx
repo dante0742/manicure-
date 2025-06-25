@@ -74,150 +74,53 @@ const Customers = () => {
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
               <div style={{ background: '#888', borderRadius: 0, padding: 8 }}>
-                <Palette className="h-6 w-6 text-white" />
+                <span style={{ color: '#fff', fontWeight: 'bold' }}>MP</span>
               </div>
               <h1 style={{ fontSize: 22, fontWeight: 'bold', color: '#333' }}>ManiPay</h1>
               <span style={{ fontSize: 22, fontWeight: 'bold', color: '#888', margin: '0 8px' }}>|</span>
               <h2 style={{ fontSize: 22, fontWeight: 'bold' }}>Customer Management</h2>
             </div>
-            <Button style={{ borderRadius: 0, background: '#e0e0e0', border: '1px solid #888', color: '#333' }}>
-              <Plus className="h-4 w-4 mr-2" />
-              Add Customer
-            </Button>
+            <button style={{ border: '1px solid #888', background: '#e0e0e0', color: '#333', padding: '6px 16px', fontWeight: 'bold', fontFamily: 'inherit', borderRadius: 0, cursor: 'pointer' }}>
+              + Add Customer
+            </button>
           </div>
         </header>
-
-        <div className="p-6 space-y-6">
-          {/* Search and Filter */}
-          <Card>
-            <CardContent className="p-4">
-              <div className="flex gap-4">
-                <div className="relative flex-1">
-                  <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-4 w-4" />
-                  <Input
-                    placeholder="Search customers by name, email, or phone..."
-                    className="pl-10"
-                  />
-                </div>
-                <Button variant="outline">Filter</Button>
-                <Button variant="outline">Export</Button>
-              </div>
-            </CardContent>
-          </Card>
-
-          {/* Customer Stats */}
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-            <Card>
-              <CardContent className="p-4">
-                <div className="text-2xl font-bold">127</div>
-                <p className="text-sm text-muted-foreground">Total Customers</p>
-              </CardContent>
-            </Card>
-            <Card>
-              <CardContent className="p-4">
-                <div className="text-2xl font-bold">23</div>
-                <p className="text-sm text-muted-foreground">New This Month</p>
-              </CardContent>
-            </Card>
-            <Card>
-              <CardContent className="p-4">
-                <div className="text-2xl font-bold">15</div>
-                <p className="text-sm text-muted-foreground">VIP Customers</p>
-              </CardContent>
-            </Card>
-            <Card>
-              <CardContent className="p-4">
-                <div className="text-2xl font-bold">KSh 45,200</div>
-                <p className="text-sm text-muted-foreground">
-                  Avg. Lifetime Value
-                </p>
-              </CardContent>
-            </Card>
-          </div>
-
-          {/* Customers Table */}
-          <Card>
-            <CardHeader>
-              <CardTitle>All Customers</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <Table>
-                <TableHeader>
-                  <TableRow>
-                    <TableHead>Customer</TableHead>
-                    <TableHead>Contact</TableHead>
-                    <TableHead>Last Visit</TableHead>
-                    <TableHead>Total Spent</TableHead>
-                    <TableHead>Status</TableHead>
-                    <TableHead>Actions</TableHead>
-                  </TableRow>
-                </TableHeader>
-                <TableBody>
-                  {customers.map((customer) => (
-                    <TableRow key={customer.id}>
-                      <TableCell>
-                        <div className="flex items-center gap-3">
-                          <Avatar className="h-8 w-8">
-                            <AvatarImage src={customer.avatar} />
-                            <AvatarFallback>
-                              {customer.name.charAt(0)}
-                            </AvatarFallback>
-                          </Avatar>
-                          <div>
-                            <p className="font-medium">{customer.name}</p>
-                            <p className="text-sm text-muted-foreground">
-                              {customer.email}
-                            </p>
-                          </div>
-                        </div>
-                      </TableCell>
-                      <TableCell>
-                        <div className="space-y-1">
-                          <div className="flex items-center gap-1 text-sm">
-                            <Phone className="h-3 w-3" />
-                            {customer.phone}
-                          </div>
-                          <div className="flex items-center gap-1 text-sm">
-                            <Mail className="h-3 w-3" />
-                            {customer.email}
-                          </div>
-                        </div>
-                      </TableCell>
-                      <TableCell>
-                        <div className="flex items-center gap-1">
-                          <Calendar className="h-4 w-4 text-muted-foreground" />
-                          {customer.lastVisit}
-                        </div>
-                      </TableCell>
-                      <TableCell className="font-medium">
-                        {customer.totalSpent}
-                      </TableCell>
-                      <TableCell>
-                        <span style={{
-                          backgroundColor: customer.status === "VIP" ? "#007bff" : customer.status === "New" ? "#6c757d" : "#f0f0f0",
-                          padding: "0.25rem 0.5rem",
-                          borderRadius: "9999px",
-                          color: customer.status === "VIP" ? "#fff" : customer.status === "New" ? "#fff" : "#333"
-                        }}>
-                          {customer.status}
-                        </span>
-                      </TableCell>
-                      <TableCell>
-                        <div className="flex gap-2">
-                          <Button variant="outline" size="sm">
-                            View
-                          </Button>
-                          <Button variant="outline" size="sm">
-                            Book
-                          </Button>
-                        </div>
-                      </TableCell>
-                    </TableRow>
-                  ))}
-                </TableBody>
-              </Table>
-            </CardContent>
-          </Card>
+        <div style={{ padding: 24 }}>
+          <table style={{ width: '100%', borderCollapse: 'collapse', background: '#fff', border: '1px solid #888' }}>
+            <thead>
+              <tr style={{ background: '#e0e0e0' }}>
+                <th style={{ border: '1px solid #888', padding: 8 }}>Customer</th>
+                <th style={{ border: '1px solid #888', padding: 8 }}>Contact</th>
+                <th style={{ border: '1px solid #888', padding: 8 }}>Last Visit</th>
+                <th style={{ border: '1px solid #888', padding: 8 }}>Total Spent</th>
+                <th style={{ border: '1px solid #888', padding: 8 }}>Status</th>
+                <th style={{ border: '1px solid #888', padding: 8 }}>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              {customers.map((customer) => (
+                <tr key={customer.id}>
+                  <td style={{ border: '1px solid #888', padding: 8 }}>
+                    <span style={{ fontWeight: 'bold' }}>{customer.name}</span><br />
+                    <span style={{ fontSize: 12, color: '#555' }}>{customer.email}</span>
+                  </td>
+                  <td style={{ border: '1px solid #888', padding: 8 }}>
+                    <div style={{ fontSize: 12 }}>{customer.phone}</div>
+                    <div style={{ fontSize: 12 }}>{customer.email}</div>
+                  </td>
+                  <td style={{ border: '1px solid #888', padding: 8 }}>{customer.lastVisit}</td>
+                  <td style={{ border: '1px solid #888', padding: 8 }}>{customer.totalSpent}</td>
+                  <td style={{ border: '1px solid #888', padding: 8 }}>
+                    <span style={{ background: '#e0e0e0', padding: '2px 8px', border: '1px solid #888', borderRadius: 0 }}>{customer.status}</span>
+                  </td>
+                  <td style={{ border: '1px solid #888', padding: 8 }}>
+                    <button style={{ border: '1px solid #888', background: '#e0e0e0', color: '#333', padding: '4px 10px', fontWeight: 'bold', fontFamily: 'inherit', borderRadius: 0, marginRight: 4, cursor: 'pointer' }}>View</button>
+                    <button style={{ border: '1px solid #888', background: '#e0e0e0', color: '#333', padding: '4px 10px', fontWeight: 'bold', fontFamily: 'inherit', borderRadius: 0, cursor: 'pointer' }}>Book</button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
       </div>
     </div>
